@@ -14,6 +14,7 @@ const Page_Sondage2 = () => {
   const { InputsData, setFormData } = useContext(Form_Context);
   const [ratingData, setRatingData] = useState(question5_data);
   const [selectedChoices, setSelectedChoices] = useState({});
+
   const handleRating = (newRating, name) => {
     const filterRatingData = ratingData.filter((cafe) => cafe.name !== name);
 
@@ -24,13 +25,12 @@ const Page_Sondage2 = () => {
     const { name, value } = e.target;
 
     setSelectedChoices({ ...selectedChoices, [name]: value });
-
-    console.log({ selectedChoices, ratingData });
   };
 
-  useEffect(() => {
-    console.log("input", InputsData);
-  }, []);
+  const handleSubmit = () => {
+    setFormData({ ...selectedChoices, question5: ratingData });
+  };
+
   return (
     <div className="formulaire-container">
       <form>
@@ -77,7 +77,11 @@ const Page_Sondage2 = () => {
           ))}
         </fieldset>
       </form>
-      <NavigationButton type="next" nextPage="/pageQ3">
+      <NavigationButton
+        handleSubmit={handleSubmit}
+        type="next"
+        nextPage="/pageQ3"
+      >
         Suivant
       </NavigationButton>
       <NavigationButton type="back">Retour</NavigationButton>

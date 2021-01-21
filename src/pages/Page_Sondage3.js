@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import NavigationButton from "../components/NavigationButton/NavigationButton";
+import { Form_Context } from "../context/FormContext";
 
 const Page_Sondage3 = () => {
+  const { InputsData, setFormData } = useContext(Form_Context);
   const [textAreaData, setTextAreaData] = useState({});
   const handleChange = (e) => {
     const { value, name } = e.target;
@@ -13,6 +15,11 @@ const Page_Sondage3 = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
+
+  useEffect(() => {
+    console.log("input", InputsData);
+  }, []);
+
   return (
     <div className="formulaire-container">
       <form onSubmit={handleSubmit}>
