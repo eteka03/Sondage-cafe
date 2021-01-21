@@ -70,11 +70,11 @@ const Page_Sondage2 = () => {
             />
           ))}
         </fieldset>
-        <NavigationButton type="next" nextPage="/pageQ3">
-          Suivant
-        </NavigationButton>
-        <NavigationButton type="back">Retour</NavigationButton>
       </form>
+      <NavigationButton type="next" nextPage="/pageQ3">
+        Suivant
+      </NavigationButton>
+      <NavigationButton type="back">Retour</NavigationButton>
     </div>
   );
 };
