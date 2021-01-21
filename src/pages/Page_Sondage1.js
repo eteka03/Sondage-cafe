@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
+import NavigationButton from "../components/NavigationButton/NavigationButton";
 import Option from "../components/Option/Option";
 import Presentation from "../components/Presentation/Presentation";
 
@@ -76,9 +77,9 @@ const Page_Sondage1 = () => {
                   />
                 ))}
               </fieldset>
-              <button className="next-button" onClick={() => {}}>
+              <NavigationButton type="next" nextPage="/pageQ2">
                 Suivant
-              </button>
+              </NavigationButton>
             </form>
           </motion.div>
         )}

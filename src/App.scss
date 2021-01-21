@@ -14,7 +14,7 @@
   font-size: 1.3em;
   padding: 50px 10px;
   border-radius: 25px;
-  margin: 0 auto;
+  margin: 100px auto;
   border: 1px solid rgba($color: #000000, $alpha: 0.85);
   @media (max-width: 992px) {
     width: 100%;
@@ -27,10 +27,37 @@
     font-size: 1em;
     margin-top: 10px;
   }
+  form {
+    & > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      label {
+        margin: 15px 0px;
+      }
+      select {
+        width: 40%;
+
+        @media (max-width: 100%) {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  input[type="number"] {
+    width: 40%;
+
+    font-size: 1em;
+    @media (max-width: 500px) {
+      width: 100%;
+    }
+  }
 
   .next-button {
     margin-bottom: 1em;
-
+    margin-left: 1em;
     font-size: 1em;
     text-align: center;
     border-style: solid;
