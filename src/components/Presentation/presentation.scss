@@ -1,0 +1,41 @@
+.presentation-container {
+  @media (max-width: 991px) {
+    width: 100%;
+  }
+  width: 600px;
+  margin: 0 auto;
+  padding: 25px 10px;
+  border-radius: 25px;
+  border: 0.7px solid rgba($color: #000000, $alpha: 0.4);
+  .titre {
+    font-weight: 800;
+    font-size: 3em;
+    margin-bottom: 20px;
+    span.big {
+      font-weight: 900;
+      font-size: 1em;
+    }
+  }
+
+  .texte {
+    font-size: 1.2em;
+  }
+
+  button {
+    margin-top: 2em;
+    font-size: 1.1em;
+    text-align: center;
+    border-style: solid;
+    border-radius: 40px;
+    display: inline-block;
+    padding: 8px 20px;
+    font-weight: 700;
+    transition: 0.5s;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #967259;
+      border-style: 0.5px solid #967259;
+    }
+  }
+}
