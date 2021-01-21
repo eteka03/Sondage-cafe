@@ -1,8 +1,9 @@
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import NavigationButton from "../components/NavigationButton/NavigationButton";
 import Option from "../components/Option/Option";
 import Presentation from "../components/Presentation/Presentation";
+import { Form_Context } from "../context/FormContext";
 
 const question2 = {
   choix1: "Du sucre",
@@ -12,6 +13,7 @@ const question2 = {
   choix5: " Du sel",
 };
 const Page_Sondage1 = () => {
+  const { setFormData } = useContext(Form_Context);
   const [isStart, setIsStart] = useState(false);
   const [selectedChoices, setSelectedChoices] = useState({});
 
@@ -21,7 +23,6 @@ const Page_Sondage1 = () => {
     if (name === "question1") {
       setSelectedChoices({ ...selectedChoices, quetion1: value });
     } else if (name.includes("question2")) {
-      console.log({ name, option, selected });
       if (selected) {
         setSelectedChoices({
           ...selectedChoices,
@@ -37,7 +38,10 @@ const Page_Sondage1 = () => {
         setSelectedChoices({ ...selectedChoices, question2: { ...rest } });
       }
     }
-    console.log(selectedChoices);
+  };
+
+  const handleSubmit = () => {
+    setFormData(selectedChoices);
   };
   return (
     <>
@@ -77,7 +81,11 @@ const Page_Sondage1 = () => {
                   />
                 ))}
               </fieldset>
-              <NavigationButton type="next" nextPage="/pageQ2">
+              <NavigationButton
+                handleSubmit={handleSubmit}
+                type="next"
+                nextPage="/pageQ2"
+              >
                 Suivant
               </NavigationButton>
             </form>

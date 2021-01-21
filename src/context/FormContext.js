@@ -9,14 +9,16 @@ export const FormContext = ({ children }) => {
 
   //créateur d'actions
   const setFormData = (data) => {
+    console.log("data", data);
     dispatch({ type: "SET_DATA", payload: data });
   };
 
-  const handleChange = (e) => {
+  /*const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     const val = type === "checkbox" ? checked : value;
     dispatch({ type: "SET_DATA", payload: { [name]: value } });
-  };
+  };*/
+
   return (
     <Form_Context.Provider value={{ InputsData, setFormData }}>
       {children}

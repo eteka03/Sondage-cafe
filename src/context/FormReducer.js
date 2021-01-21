@@ -1,8 +1,8 @@
 const FormReducer = (state, action) => {
-  let formData;
+  let formDatas;
   switch (action.type) {
     case "SET_DATA":
-      return formData;
+      return { ...state, ...action.payload };
     default:
       return state;
   }

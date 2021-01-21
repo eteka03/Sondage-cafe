@@ -11,6 +11,7 @@ const NavigationButton = ({children,type , nextPage , handleSubmit}) => {
                 handleSubmit()
             }else{
                 history.push(nextPage)
+                handleSubmit()
             }
              
         }}>

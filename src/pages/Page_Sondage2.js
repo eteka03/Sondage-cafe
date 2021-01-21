@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import CustomRating from "../components/CustomRating/CustomRating";
 import NavigationButton from "../components/NavigationButton/NavigationButton";
+import { Form_Context } from "../context/FormContext";
 
 const question5_data = [
   { name: "Capuccino", rating: 0 },
@@ -10,6 +11,7 @@ const question5_data = [
   { name: "Irlandais", rating: 0 },
 ];
 const Page_Sondage2 = () => {
+  const { InputsData, setFormData } = useContext(Form_Context);
   const [ratingData, setRatingData] = useState(question5_data);
   const [selectedChoices, setSelectedChoices] = useState({});
   const handleRating = (newRating, name) => {
@@ -25,6 +27,10 @@ const Page_Sondage2 = () => {
 
     console.log({ selectedChoices, ratingData });
   };
+
+  useEffect(() => {
+    console.log("input", InputsData);
+  }, []);
   return (
     <div className="formulaire-container">
       <form>
