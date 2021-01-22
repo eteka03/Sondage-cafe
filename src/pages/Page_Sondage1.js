@@ -21,7 +21,7 @@ const Page_Sondage1 = () => {
     const { name, value, type } = e.target;
 
     if (name === "question1") {
-      setSelectedChoices({ ...selectedChoices, quetion1: value });
+      setSelectedChoices({ ...selectedChoices, question1: value });
     } else if (name.includes("question2")) {
       if (selected) {
         setSelectedChoices({
@@ -60,7 +60,7 @@ const Page_Sondage1 = () => {
             className="formulaire-container"
           >
             <form>
-              <label className="" htmlFor="cafe nombre">
+              <label className="" htmlFor="question1">
                 Combien de cafés avez-vous bu aujourd'hui? (réponse unique)
               </label>
               <select onChange={handleSelections} name="question1">

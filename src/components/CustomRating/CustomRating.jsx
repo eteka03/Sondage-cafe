@@ -9,7 +9,8 @@ const CustomRating = ({name , rating ,handleRating}) => {
               starRatedColor="yellow"
               numberOfStars={5}
               rating={rating}
-              
+              starHoverColor="yellow"
+              starDimension="35px"
               name={name}
               changeRating={handleRating}
             />

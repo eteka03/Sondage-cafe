@@ -1,19 +1,22 @@
+import { AnimatePresence, motion } from "framer-motion";
 import React, { useState, useContext, useEffect } from "react";
 import NavigationButton from "../components/NavigationButton/NavigationButton";
+import Resultat from "../components/Resultat/Resultat";
 import { Form_Context } from "../context/FormContext";
 
 const Page_Sondage3 = () => {
+  const [isEnd, setIsEnd] = useState(false);
   const { InputsData, setFormData } = useContext(Form_Context);
   const [textAreaData, setTextAreaData] = useState({});
   const handleChange = (e) => {
     const { value, name } = e.target;
 
     setTextAreaData({ [name]: value });
-    console.log(textAreaData);
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    setFormData(textAreaData);
+    setIsEnd(!isEnd);
   };
 
   useEffect(() => {
@@ -21,17 +24,24 @@ const Page_Sondage3 = () => {
   }, []);
 
   return (
-    <div className="formulaire-container">
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="question6">
-          Avez-vous des suggestions pour améliorer ce sondage? (réponse
-          optionnelle)
-          <textarea onChange={handleChange} />
-        </label>
-      </form>
-      <NavigationButton type="envoyer">Envoyer</NavigationButton>
-      <NavigationButton type="back">Retour</NavigationButton>
-    </div>
+    <AnimatePresence>
+      {isEnd && <Resultat />}
+      {!isEnd && (
+        <div className="formulaire-container">
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="question6">
+              Avez-vous des suggestions pour améliorer ce sondage? (réponse
+              optionnelle)
+              <textarea onChange={handleChange} name="question6" />
+            </label>
+          </form>
+          <NavigationButton type="envoyer" handleSubmit={handleSubmit}>
+            Envoyer
+          </NavigationButton>
+          <NavigationButton type="back">Retour</NavigationButton>
+        </div>
+      )}
+    </AnimatePresence>
   );
 };
 

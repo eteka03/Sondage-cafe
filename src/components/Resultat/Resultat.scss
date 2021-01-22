@@ -1,0 +1,52 @@
+.resultat-container {
+  @media (max-width: 992px) {
+    width: 100%;
+  }
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 100px auto;
+  border: 0.8px solid rgba($color: #000000, $alpha: 0.6);
+  padding: 35px 15px;
+  border-radius: 25px;
+
+  .remerciement-texte {
+    font-weight: 850;
+    font-size: 1.5em;
+    word-spacing: 2px;
+    margin-bottom: 10px;
+
+    .big {
+      font-size: 1.3em;
+    }
+  }
+
+  .sondage-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 1.5em;
+    font-size: 1em;
+    p {
+      font-size: 1.1em;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    margin-top: 1em;
+  }
+  li {
+    font-weight: 700;
+    font-size: 1.2em;
+    pointer-events: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
