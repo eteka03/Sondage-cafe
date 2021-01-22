@@ -15,9 +15,9 @@ const questions = {
 
 const Resultat = () => {
     const {InputsData} =useContext(Form_Context)
-    console.log(InputsData)
+   
     return (
-        <motion.div className="resultat-container">
+        <motion.div initial={{opacity: 0 }} animate={{opacity:1 }} transition={{duration:1.1}} className="resultat-container">
             <p className="remerciement-texte"><span className="big">Merci !</span> d'avoir participé à notre sondage. Nous vous présentons vos réponses : </p>
             {Object.keys(questions).map(question => {
 

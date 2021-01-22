@@ -27,7 +27,12 @@ const Page_Sondage3 = () => {
     <AnimatePresence>
       {isEnd && <Resultat />}
       {!isEnd && (
-        <div className="formulaire-container">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="formulaire-container"
+        >
           <form onSubmit={handleSubmit}>
             <label htmlFor="question6">
               Avez-vous des suggestions pour améliorer ce sondage? (réponse
@@ -39,7 +44,7 @@ const Page_Sondage3 = () => {
             Envoyer
           </NavigationButton>
           <NavigationButton type="back">Retour</NavigationButton>
-        </div>
+        </motion.div>
       )}
     </AnimatePresence>
   );
